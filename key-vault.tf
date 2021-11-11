@@ -6,13 +6,14 @@ module "adoption-app-vault" {
   tenant_id                  = var.tenant_id
   object_id                  = var.jenkins_AAD_objectId
   resource_group_name        = azurerm_resource_group.rg.name
-  product_group_object_id    = "68839600-92da-4862-bb24-1259814d1384"
+  product_group_name         = "dcd_group_adoption_v2"
   common_tags                = local.tags
-  managed_identity_object_id = var.managed_identity_object_id
+  create_managed_identity    = true
+  // managed_identity_object_id = var.managed_identity_object_id
 }
 
-data "azurerm_key_vault" "cmc_key_vault" {
-  name                = "cmc-${var.env}"
+data "azurerm_key_vault" "adoption-app_key_vault" {
+  name                = "adoption-app-${var.env}"
   resource_group_name = azurerm_resource_group.rg.name
 }
 
