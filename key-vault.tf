@@ -1,7 +1,6 @@
-/*
 module "adoption-app-vault" {
   source                     = "git@github.com:hmcts/cnp-module-key-vault?ref=master"
-  name                       = "adoption-app-${var.env}"
+  name                       = "${var.product}-${var.env}"//test "adoption-app-${var.env}"
   product                    = var.product
   env                        = var.env
   tenant_id                  = var.tenant_id
@@ -14,11 +13,10 @@ module "adoption-app-vault" {
 }
 
 data "azurerm_key_vault" "adoption-app_key_vault" {
-  name                = "adoption-app-${var.env}"
+  name                = "${var.product}-${var.env}" //test "adoption-app-${var.env}"
   resource_group_name = azurerm_resource_group.rg.name
 }
 
 output "vaultName" {
   value = module.adoption-app-vault.key_vault_name
 }
-*/
