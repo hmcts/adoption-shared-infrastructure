@@ -1,4 +1,3 @@
-/* 
 resource "azurerm_application_insights" "appinsights" {
   name                = "${var.product}-${var.env}"
   location            = var.appinsights_location
@@ -19,4 +18,3 @@ resource "azurerm_key_vault_secret" "appInsights-InstrumentationKey" {
   value        = azurerm_application_insights.appinsights.instrumentation_key
   key_vault_id = module.adoption-app-vault.key_vault_id
 }
-*/
