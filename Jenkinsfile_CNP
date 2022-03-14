@@ -2,6 +2,9 @@
 //noinspection GroovyUnusedAssignment
 @Library("Infrastructure") _
 
+def branchesToSync = ['demo', 'ithc', 'perftest']
+
 withInfraPipeline("adoption") {
+  syncBranchesWithMaster(branchesToSync)
   enableSlackNotifications("#adoption-tech")
 }
