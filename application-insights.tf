@@ -40,7 +40,7 @@ resource "azurerm_application_insights" "appinsights_preview" {
 }
 
 resource "azurerm_key_vault_secret" "AZURE_APPINSIGHTS_KEY_PREVIEW" {
-  name         = "AppInsightsInstrumentationKey-Preview"
+  name         = "AppInsightsInstrumentationKey-Preview-New"
   value        = azurerm_application_insights.appinsights_preview[0].instrumentation_key
   key_vault_id = module.adoption-app-vault.key_vault_id
   count = var.env == "aat" ? 1 : 0
