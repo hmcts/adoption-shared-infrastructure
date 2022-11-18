@@ -22,7 +22,7 @@ resource "azurerm_key_vault_secret" "appInsights-InstrumentationKey" {
 }
 
 resource "azurerm_application_insights" "appinsights_preview" {
-  name                = "${var.product}-appinsights-preview"
+  name                = "${var.product}-${var.env}"
   location            = var.appinsights_location
   resource_group_name = azurerm_resource_group.rg.name
   application_type    = var.application_type
