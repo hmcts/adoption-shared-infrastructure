@@ -35,7 +35,7 @@ module "application_insights_preview" {
 }
 
 moved {
-  from = azurerm_application_insights.appinsights_preview
+  from = azurerm_application_insights.appinsights_preview[0]
   to   = module.application_insights_preview[0].azurerm_application_insights.this
 }
 resource "azurerm_key_vault_secret" "AZURE_APPINSIGHTS_KEY_PREVIEW" {
