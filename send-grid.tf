@@ -13,7 +13,7 @@ data "azurerm_key_vault" "send_grid" {
 }
 
 data "azurerm_key_vault" "adoption_key_vault" {
-  name = "adoption-${var.env}"
+  name                = "adoption-${var.env}"
   resource_group_name = "adoption-${var.env}"
 }
 
