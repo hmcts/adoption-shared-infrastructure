@@ -11,14 +11,27 @@ module "application_insights" {
   common_tags         = var.common_tags
 }
 
+module "application_insights_uksouth" {
+  source = "git@github.com:hmcts/terraform-module-application-insights?ref=4.x"
+
+  env     = var.env
+  product = var.product
+  name    = "${var.product}-appinsights-uksouth"
+
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = var.location
+  alert_location      = var.location
+  common_tags         = var.common_tags
+}
+
 moved {
   from = azurerm_application_insights.appinsights
-  to   = module.application_insights.azurerm_application_insights.this
+  to   = module.application_insights_uksouth.azurerm_application_insights.this
 }
 
 resource "azurerm_key_vault_secret" "appInsights-InstrumentationKey" {
   name         = "AppInsightsInstrumentationKey"
-  value        = module.application_insights.instrumentation_key
+  value        = module.application_insights_uksouth.instrumentation_key
   key_vault_id = module.adoption-app-vault.key_vault_id
 }
 

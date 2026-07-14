@@ -16,6 +16,7 @@ The following parameters are optional
 - `product` The (short) name of the product. Default is "adoption". 
 - `location` The location of the Azure data center. Default is "UK South".
 - `appinsights_location` Location for Application Insights. Default is "West Europe".
+  * Deprecated as of [ADOP-2789](https://tools.hmcts.net/jira/browse/ADOP-2789) - use `location` instead.
 - `application_type` Type of Application Insights (Web/Other). Default is "Web".
 
 ### Output
