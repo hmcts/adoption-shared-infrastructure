@@ -11,7 +11,7 @@ variable "appinsights_location" {
 }
 
 variable "alert_location" {
-  default    = "West Europe"
+  default     = "West Europe"
   description = "Location for Action Groups"
 }
 
