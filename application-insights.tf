@@ -20,7 +20,7 @@ module "application_insights_uksouth" {
 
   resource_group_name = azurerm_resource_group.rg.name
   location            = var.location
-  alert_location      = var.location
+  alert_location      = var.alert_location
   common_tags         = var.common_tags
 }
 

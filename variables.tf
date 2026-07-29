@@ -10,6 +10,11 @@ variable "appinsights_location" {
   description = "Location for Application Insights"
 }
 
+variable "alert_location" {
+  default     = "West Europe"
+  description = "Location for Action Groups"
+}
+
 variable "common_tags" {
   type = map(any)
 }
