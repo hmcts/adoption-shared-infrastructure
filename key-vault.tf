@@ -1,5 +1,5 @@
 module "adoption-app-vault" {
-  source                       = "git@github.com:hmcts/cnp-module-key-vault?ref=master"
+  source                       = "git@github.com:hmcts/cnp-module-key-vault?ref=DTSPO-31965/remove-jenkins-ptl-access"
   name                         = "${var.product}-${var.env}"
   product                      = var.product
   env                          = var.env
