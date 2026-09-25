@@ -77,7 +77,7 @@ module "application_insights_preview_uksouth" {
 }
 
 moved {
-  from = azurerm_application_insights.appinsights_preview[0]
+  from = azurerm_application_insights.appinsights_preview_uksouth[0]
   to   = module.application_insights_preview_uksouth[0].azurerm_application_insights.this
 }
 
