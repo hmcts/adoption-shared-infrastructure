@@ -18,6 +18,6 @@ locals {
 import {
   for_each = toset(lookup(local.managed_identity_access_policy_imports, var.env, []))
 
-  to = module.key-vault.azurerm_key_vault_access_policy.managed_identity_access_policy[each.value]
-  id = "${module.key-vault.key_vault_id}/objectId/${each.value}"
+  to = module.adoption-app-vault.azurerm_key_vault_access_policy.ado[0]
+  id = "${module.adoption-app-vault.key_vault_id}/objectId/${each.value}"
 }
