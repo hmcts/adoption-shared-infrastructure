@@ -11,7 +11,7 @@
 locals {
   // env => set of key vault access policy object ids to adopt into state
   managed_identity_access_policy_imports = {
-    aat = ["14b22215-46e6-48a9-8681-e8cefe66236a"]
+    aat = ["14b22215-46e6-48a9-8681-e8cefe66236a", "c860eaa0-74be-4731-8370-db94c5fdad81"]
   }
 }
 
