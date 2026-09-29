@@ -60,3 +60,30 @@ resource "azurerm_key_vault_secret" "AZURE_APPINSIGHTS_KEY_PREVIEW" {
   key_vault_id = module.adoption-app-vault.key_vault_id
   count        = var.env == "aat" ? 1 : 0
 }
+
+module "application_insights_preview_uksouth" {
+  count  = var.env == "aat" ? 1 : 0
+  source = "git@github.com:hmcts/terraform-module-application-insights?ref=4.x"
+
+  env     = "preview"
+  product = var.product
+  name    = "${var.product}-appinsights-uksouth"
+
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = var.location
+  alert_location      = var.appinsights_location
+
+  common_tags = var.common_tags
+}
+
+moved {
+  from = azurerm_application_insights.appinsights_preview_uksouth[0]
+  to   = module.application_insights_preview_uksouth[0].azurerm_application_insights.this
+}
+
+resource "azurerm_key_vault_secret" "appInsights-InstrumentationKey-Preview" {
+  name         = "AppInsightsInstrumentationKey-Preview-UKSouth"
+  value        = module.application_insights_preview_uksouth[0].instrumentation_key
+  key_vault_id = module.adoption-app-vault.key_vault_id
+  count        = var.env == "aat" ? 1 : 0
+}
