@@ -4,7 +4,7 @@ module "adoption-proxies-alert" {
   app_insights_name          = "${var.product}-appinsights-uksouth-${var.env}"
   alert_name                 = "${var.product}-proxies"
   alert_desc                 = "Alert when number of proxies has been changed"
-  app_insights_query         = "traces | where message has '/la-portal/kba-case-ref 429: x-forwarded-for Header contains ' | parse message with '/la-portal/kba-case-ref 429: x-forwarded-for Header contains ' noOfProxy 'IP addresses' | where toint(noOfProxy) != 2 | project TimeGenerated = timestamp, noOfProxy"
+  app_insights_query         = "traces | where message has '/la-portal/kba-case-ref 429: x-forwarded-for Header contains ' | parse message with '/la-portal/kba-case-ref 429: x-forwarded-for Header contains ' noOfProxy ' IP addresses' | where toint(noOfProxy) != 3 | project TimeGenerated = timestamp, noOfProxy"
   custom_email_subject       = "Number of proxies has been changed"
   frequency_in_minutes       = "1440"
   time_window_in_minutes     = "1440"
