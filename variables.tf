@@ -63,3 +63,7 @@ variable "sku" {
   default     = "standard"
   description = "The Name of the SKU used for this Key Vault. Possible values are standard and premium."
 }
+
+variable "enable_alerts" {
+  default = false
+}
