@@ -2,7 +2,7 @@ module "adoption-support-action-group" {
   source                 = "git@github.com:hmcts/cnp-module-action-group"
   location               = var.location
   env                    = var.env
-  resourcegroup_name    = azurerm_resource_group.rg.name
+  resourcegroup_name     = azurerm_resource_group.rg.name
   action_group_name      = "${var.product}-support"
   short_name             = "${var.product}-support"
   email_receiver_name    = "Adoption Support Mailing List"
