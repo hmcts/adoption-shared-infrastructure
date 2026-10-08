@@ -5,5 +5,5 @@ data "azurerm_user_assigned_identity" "jenkins" {
 
 data "azurerm_key_vault_secret" "adoption_support_email_secret" {
   name         = "${var.product}-support-email"
-  key_vault_id = module.key-vault.key_vault_id
+  key_vault_id = module.adoption-app-vault.key_vault_id
 }
