@@ -1,3 +1,15 @@
+module "adoption-support-action-group" {
+  source                 = "git@github.com:hmcts/cnp-module-action-group"
+  location               = var.location
+  env                    = var.env
+  resourcegroup_name     = azurerm_resource_group.rg.name
+  action_group_name      = "${var.product}-support"
+  short_name             = "${var.product}-support"
+  email_receiver_name    = "Adoption Support Mailing List"
+  email_receiver_address = data.azurerm_key_vault_secret.adoption_support_email_secret.value
+  tags                   = var.common_tags
+}
+
 // Bulk print failures
 /*
 data "azurerm_key_vault_secret" "bpf_email_secret" {
