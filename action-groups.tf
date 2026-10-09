@@ -1,6 +1,6 @@
 module "adoption-support-action-group" {
   source                 = "git@github.com:hmcts/cnp-module-action-group"
-  location               = var.location
+  location               = "global"
   env                    = var.env
   resourcegroup_name     = azurerm_resource_group.rg.name
   action_group_name      = "${var.product}-support"
