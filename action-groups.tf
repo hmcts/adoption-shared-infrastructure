@@ -4,7 +4,7 @@ module "adoption-support-action-group" {
   env                    = var.env
   resourcegroup_name     = azurerm_resource_group.rg.name
   action_group_name      = "${var.product}-support"
-  short_name             = "${var.product}-support"
+  short_name             = "${var.product-shortname}-support"
   email_receiver_name    = "Adoption Support Mailing List"
   email_receiver_address = data.azurerm_key_vault_secret.adoption_support_email_secret.value
   tags                   = var.common_tags
