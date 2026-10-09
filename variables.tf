@@ -1,5 +1,9 @@
 variable "product" {}
 
+variable "product-shortname" {
+  default = "adop"
+}
+
 variable "location" {
   default = "UK South"
 }
