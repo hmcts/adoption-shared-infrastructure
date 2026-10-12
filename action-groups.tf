@@ -10,11 +10,6 @@ module "adoption-support-action-group" {
   tags                   = var.common_tags
 }
 
-output "adoption-support-action-group_name" {
-  value = module.adoption-support-action-group.action_group_name
-}
-
-
 // Bulk print failures
 /*
 data "azurerm_key_vault_secret" "bpf_email_secret" {
