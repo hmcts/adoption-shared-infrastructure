@@ -16,7 +16,7 @@ resource "azurerm_role_assignment" "slack_alerts_monitoring_reader_workspace" {
 
   scope                = data.azurerm_application_insights.main.workspace_id
   role_definition_name = "Monitoring Reader"
-  principal_id         = local.slack_alerts_principal_id
+  principal_id         = var.slack_alerts_principal_id
 
   description = "Allows slack alerts function app to query Application Insights workspace using Azure AD authentication"
 }
@@ -27,7 +27,7 @@ resource "azurerm_role_assignment" "slack_alerts_monitoring_reader_appinsights" 
 
   scope                = data.azurerm_application_insights.main.id
   role_definition_name = "Monitoring Reader"
-  principal_id         = local.slack_alerts_principal_id
+  principal_id         = var.slack_alerts_principal_id
 
   description = "Allows slack alerts function app to read Application Insights metadata"
 }
