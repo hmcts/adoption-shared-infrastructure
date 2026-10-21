@@ -68,6 +68,9 @@ variable "sku" {
   description = "The Name of the SKU used for this Key Vault. Possible values are standard and premium."
 }
 
-variable "enable_alerts" {
-  default = false
+variable "slack_alerts_principal_id" {
+  description = "Managed identity principal ID of the slack alerts function app. Only needed in prod."
+  type        = string
+  default     = ""
 }
+
