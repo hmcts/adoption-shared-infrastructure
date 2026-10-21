@@ -9,6 +9,7 @@ module "application_insights" {
   location            = var.appinsights_location
   alert_location      = var.appinsights_location
   common_tags         = var.common_tags
+  sampling_percentage = contains(["demo"], lower(var.env)) ? 100 : null
 }
 
 module "application_insights_uksouth" {
@@ -22,6 +23,12 @@ module "application_insights_uksouth" {
   location            = var.location
   alert_location      = var.alert_location
   common_tags         = var.common_tags
+
+  # Capture full telemetry on the lower environments used for diagnosis (demo)
+  # so failures (failed requests, 5xx, exceptions) are not dropped by the module's default
+  # non-prod ingestion sampling of 1%, which blocks diagnosis. Remaining environments keep the
+  # module defaults (prod = 100%, other non-prod = 1%)
+  sampling_percentage = contains(["demo"], lower(var.env)) ? 100 : null
 }
 
 moved {
